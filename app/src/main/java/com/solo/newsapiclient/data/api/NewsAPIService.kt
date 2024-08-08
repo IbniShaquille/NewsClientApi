@@ -1,5 +1,6 @@
 package com.solo.newsapiclient.data.api
 
+import com.solo.newsapiclient.BuildConfig
 import com.solo.newsapiclient.data.model.APIResponse
 import com.solo.newsapiclient.data.utils.Resource
 import retrofit2.http.GET
@@ -14,8 +15,8 @@ interface NewsAPIService {
         @Query("page")
         page: Int,
         @Query("apiKey")
-        apiKey: String
-    ) : Resource<APIResponse>
+        apiKey: String = BuildConfig.API_KEY
+    ): Resource<APIResponse>
 
 
 }
