@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.daggerHilt)
 }
 
 android {
@@ -73,6 +74,10 @@ dependencies {
     implementation(libs.viewmodel)
     implementation(libs.liveData)
     ksp(libs.lifeCycle.compiler)
+
+//    dagger hilt
+    implementation(libs.dagger.hilt.android)
+    ksp(libs.dagger.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
