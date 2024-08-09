@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -67,6 +68,11 @@ dependencies {
     //retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+
+    //lifecycle
+    implementation(libs.viewmodel)
+    implementation(libs.liveData)
+    ksp(libs.lifeCycle.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
