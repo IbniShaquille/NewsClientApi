@@ -2,7 +2,7 @@ package com.solo.newsapiclient.data.repository
 
 import com.solo.newsapiclient.data.model.APIResponse
 import com.solo.newsapiclient.data.model.Article
-import com.solo.newsapiclient.data.repository.dataSource.NewsRemoteDataSource
+import com.solo.newsapiclient.data.repository.datasource.NewsRemoteDataSource
 import com.solo.newsapiclient.data.utils.Resource
 import com.solo.newsapiclient.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
@@ -11,8 +11,11 @@ import retrofit2.Response
 class NewsRepositoryImpl(
     private val newsRemoteDataSource: NewsRemoteDataSource
 ) : NewsRepository {
-    override suspend fun getNewsHeadlines(): Resource<APIResponse> {
-        return responseToResource(newsRemoteDataSource.getTopHeadlines())
+    override suspend fun getNewsHeadlines(
+        country: String,
+        page: Int
+    ): Resource<APIResponse> {
+        return responseToResource(newsRemoteDataSource.getTopHeadlines(country, page))
     }
 
     private fun responseToResource(response: Response<APIResponse>): Resource<APIResponse> {
