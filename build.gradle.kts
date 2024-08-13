@@ -2,4 +2,12 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
+    alias(libs.plugins.kotlin.ksp) apply false
+    alias(libs.plugins.dagger.hilt) apply false
+}
+
+buildscript{
+    dependencies{
+        classpath(libs.navigation.safe.args.gradle.plugin)
+    }
 }
