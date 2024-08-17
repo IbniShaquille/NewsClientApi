@@ -49,9 +49,9 @@ class NewsFragment : Fragment() {
                     response.data?.let {
                         newsAdapter.differ.submitList(it.articles.toList())
                         pages = if (it.totalResults % 20 == 0){
-                            it.totalResults/20;
+                            it.totalResults/20
                         } else{
-                            it.totalResults/20 + 1;
+                            it.totalResults/20 + 1
                         }
                         isLastPage = page == pages
                     }
